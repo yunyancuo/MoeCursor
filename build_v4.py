@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 girl_src = np.asarray(Image.open('character_square.png').convert('RGBA')).astype(np.float32)
 hsv = cv2.cvtColor(girl_src[..., :3].astype(np.uint8), cv2.COLOR_RGB2HSV).astype(np.float32)
 hsv = cv2.cvtColor(girl_src[..., :3].astype(np.uint8), cv2.COLOR_RGB2HSV).astype(np.float32)
-hsv[..., 1] = np.clip(hsv[..., 1] * 1.35, 0, 255)
+hsv[..., 1] = np.clip(hsv[..., 1] * 1.42, 0, 255)
 rgb2 = cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2RGB).astype(np.float32)
 rgb2 = np.clip((rgb2 - 128) * 1.14 + 128, 0, 255)   # 轻微对比, 抵消缩放灰化
 girl = girl_src.copy(); girl[..., :3] = rgb2
